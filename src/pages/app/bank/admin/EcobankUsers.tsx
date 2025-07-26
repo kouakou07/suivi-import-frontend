@@ -65,7 +65,7 @@ const EcobankUser = () => {
     }
 
     return(
-        <Layout title="Utilisateurs de la banque">
+        <Layout title="Les utilisateurs de SO'3G">
             
             {isLoading == true &&
                 <div className="text-center">
@@ -101,7 +101,7 @@ const EcobankUser = () => {
                                                     <td>{user.status == 1 ? <span className="badge badge-primary">Active</span>: <span className="badge badge-danger">Desactive</span>}</td>
                                                     <td>{moment(user.dateCreation).format('DD/MM/YYYY HH:mm')}</td>
                                                     <td>
-                                                        <Link className="text-success" to={"/banking/info/"+ user.id +"/utilisateur"}><i className="fa fa-eye"></i> </Link>
+                                                        <Link className="text-success" to={"/suivi-import/info/"+ user.id +"/utilisateur"}><i className="fa fa-eye"></i> </Link>
                                                         <Link className="text-success" onClick={() => onResetPassword(user.id)} title="Reinitialiser mot de passe" to={"#"}><i className="fa fa-key"></i></Link>
                                                     </td>
                                                 </tr>

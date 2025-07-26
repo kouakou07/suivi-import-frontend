@@ -96,7 +96,7 @@ const EcobankUserCreation = () => {
     }
 
     return(
-        <Layout title="Enregistrer un utilisateur de la banque">
+        <Layout title="Enregistrer un utilisateur de SO'3G ">
             {isLoading == true && <div className="text-center">
                 <BeatLoader />
             </div>}
@@ -104,7 +104,7 @@ const EcobankUserCreation = () => {
                 <div className="col-md-10 col-lg-8">
                     <Wrapper title="Nouveau utilisateur">
                         <div className="text-right">
-                            <Link className="btn btn-link" to={"/banking/utilisateurs"}>Les utilisateurs</Link>
+                            <Link className="btn btn-link" to={"/suivi-import/utilisateurs"}>Liste des utilisateurs</Link>
                         </div>
                         <form onSubmit={onSubmit}>
                             <Input  label='Nom' report={errors.nom}  name='nom' data={userData}  update={setUserData}/>

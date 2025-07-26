@@ -8,17 +8,15 @@ const ItRoute = () => {
             <li className="active">
                 <a href="#itUser" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle"><i className="fa fa-cog yellow_color"></i> <span>Parametres</span></a>
                 <ul className="collapse list-unstyled" id="itUser">
-                    <MyLink label="Les motifs de rejet" link="/banking/parametre/motifs"  />
-                    <MyLink label="Les banques" link="/banking/parametre/banques" />
-                    <MyLink label="Repertoire d'integration" link="/banking/parametre/integration" />
-                    <MyLink label="Session | Inactivité" link="/banking/parametre/session-inactivite" />
-                    <MyLink label="Tentative login" link="/banking/parametre/tentative-login" />
+            
+                    <MyLink label="Session | Inactivité" link="/suivi-import/parametre/session-inactivite" />
+                    <MyLink label="Tentative login" link="/suivi-import/parametre/tentative-login" />
                 </ul>
             </li> 
             <li className="active">
                 <a href="#itUserAudit" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle"><i className="fa fa-eye yellow_color"></i> <span>Activites utilisateurs</span></a>
                 <ul className="collapse list-unstyled" id="itUserAudit">
-                    <MyLink label="Audit" link="/banking/audit"  />
+                    <MyLink label="Audit" link="/suivi-import/audit"  />
                 </ul>
             </li> 
             <li className="active">

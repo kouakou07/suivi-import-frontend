@@ -47,7 +47,7 @@ function App() {
 
   return (
      <Routes>
-        <Route path='/banking/*' element={
+        <Route path='/suivi-import/*' element={
           <ProtectedRoute>
               <Routes>
                 <Route index path='/' element={<Index/>} />

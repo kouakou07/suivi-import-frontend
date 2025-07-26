@@ -107,11 +107,11 @@ const EcobankUserInfo = () => {
     }
 
     if(userNotFound == true){
-        return <Navigate to={"/banking/utilisateurs"} />
+        return <Navigate to={"/suivi-import/utilisateurs"} />
     }
 
     return(
-        <Layout title="Information utilisateur de la banque">
+        <Layout title="Information utilisateur de SO'3G">
             {isLoading == true && <div className="text-center">
                 <BeatLoader />
             </div>}
@@ -119,7 +119,7 @@ const EcobankUserInfo = () => {
                 <div className="col-md-10 col-lg-8">
                     <Wrapper title="Edition des informations">
                         <div className="text-right">
-                            <Link className="btn btn-link" to={"/banking/utilisateurs"}>Les utilisateus</Link>
+                            <Link className="btn btn-link" to={"/suivi-import/utilisateurs"}>Les utilisateus</Link>
                         </div>
                         <SwitchButton url={myRoute.changeStatusUser.replace("{userId}", userId ?? "")} value={userData.status == 1} />
                         <form onSubmit={onSubmit}>

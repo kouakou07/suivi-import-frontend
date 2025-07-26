@@ -39,13 +39,15 @@ const Index = ({ }) => {
     }, [])
 
     return (
-        <Layout title="Welcome">
+        <Layout title="Bienvue sur le dashboard">
             <div className="row column1">
-                <Card title={"Nouvelle remise"} number={stats.newRemise} fa="fa-money" colorStyle={"#FF9800"} />
-                <Card title={"Remise rejeté"} number={stats.remiseRejete} fa="fa-times-circle" colorStyle={"red"} />
-                <Card title={"Remise validé"} number={stats.remiseValide} fa="fa-check-circle" colorStyle={"green"} />
-                <Card title={"Remise integré"} number={stats.remiseIntegre} fa="fa-cloud" colorStyle={"#0089FA"} />
-
+                <Card title={"Commandes en cours"} number={stats.newRemise} fa="fa-truck-loading" colorStyle={"#FF9800"} />
+                <Card title={"Commandes archivées"} number={stats.remiseRejete} fa="fa-archive" colorStyle={"red"} />
+                <Card title={"Commandes Livrées"} number={stats.remiseValide} fa="fa-check-circle" colorStyle={"green"} />
+                <Card title={"Commandes Soldées"} number={stats.remiseIntegre} fa="fa-money" colorStyle={"#0089FA"} />
+                <Card title={"Nombre d'articles"} number={stats.remiseIntegre} fa="fa-boxe" colorStyle={"#fa7900ff"} />
+                <Card title={"Nombre de fournisseurs"} number={stats.remiseIntegre} fa="fa-user" colorStyle={"#c800faff"} />
+                <Card title={"Chiffre d'affaires"} number={stats.remiseIntegre} fa="fa-money" colorStyle={"#006cfaff"} />
             </div>
         </Layout>
     );

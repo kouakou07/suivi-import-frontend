@@ -50,6 +50,7 @@ const Login = ({}) => {
       setIsLoading(true);
       httpClient.post(myRoute.login, encodeData(input))
       .then(res => {
+         console.log(res?.data);
          const token = res.data.token;
          localStorage.setItem("authToken", token);
          setIsAuthenticated(true);
@@ -131,7 +132,7 @@ const Login = ({}) => {
    }
 
    if(isAuthenticated){
-      return <Navigate to={"/banking/"} />
+      return <Navigate to={"/suivi-import/"} />
    }
 
     return(
@@ -148,7 +149,7 @@ const Login = ({}) => {
                   </div>}
                      <div className="logo_login-" >
                         <div className="center mt-3">
-                           <img width="210" src={logo} alt="Ecobank Logo" />
+                           <img width="210" height="120" src={logo} alt="SO'3G" />
                         </div>
                      </div>
                      {noticePassword == null && <div className="login_form" >
@@ -158,7 +159,7 @@ const Login = ({}) => {
                         </div>}
                         {notice != null && <div className='alert alert-danger'>{notice}</div>}
                         <form onSubmit={onSubmit}>
-                           <Input label='Nom utilisateur' report={errors.username} placeholder='Ex: Sam' name='username' data={input}  update={setInput}/>
+                           <Input label='Nom utilisateur' report={errors.username} placeholder='Ex: Kouakou' name='username' data={input}  update={setInput}/>
                            <Input label='Mot de passe' report={errors.password} placeholder='Mot de passe' name='password' type='password' data={input}  update={setInput}/>
                           {isLoading == true && <div className='text-center'>
                               <BeatLoader />

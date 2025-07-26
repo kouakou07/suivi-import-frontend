@@ -9,7 +9,7 @@ const TopBar = ({userData}: any) => {
             <div className="full">
                 <button type="button" id="sidebarCollapse" className="sidebar_toggle"><i className="fa fa-bars"></i></button>
                 <div className="logo_section">
-                    <a href="/banking/">
+                    <a href="/suivi-import/">
                         {/* <img className="img-responsive" src="/images/logo/logo.png" alt="#" /> */}
                         </a>
                 </div>
@@ -24,7 +24,7 @@ const TopBar = ({userData}: any) => {
                         <li>
                             <a className="dropdown-toggle" data-toggle="dropdown"><i className="fa fa-user"></i><span className="name_user">{userData.nom + " " + userData.prenom}</span></a>
                             <div className="dropdown-menu">
-                                <Link className="dropdown-item" to="/banking/profil">Mon Profil</Link>
+                                <Link className="dropdown-item" to="/suivi-import/profil">Mon Profil</Link>
 
                                 <Link className="dropdown-item" to={"/deconnection"}><span>Deconnexion</span> <i className="fa fa-sign-out"></i></Link>
                             </div>

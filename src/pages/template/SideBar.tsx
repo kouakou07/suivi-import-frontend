@@ -16,7 +16,7 @@ const SideBar = ({ userData }: any) => {
             <div className="sidebar_blog_1">
                <div className="sidebar-header">
                   <div className="logo_section">
-                     <a href="/banking/">
+                     <a href="/suivi-import/">
                         {/* <img className="logo_icon img-responsive" src="/images/logo/logo_icon.png" alt="#" /> */}
                      </a>
                   </div>
@@ -40,16 +40,16 @@ const SideBar = ({ userData }: any) => {
                   <li className="active">
                      <a href="#dashboard" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle"><i className="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                      <ul className="collapse list-unstyled" id="dashboard">
-                        <MyLink label="Dashboard" link="/banking/" />
-                        <MyLink label="Mon profil" link="/banking/profil" />
+                        <MyLink label="Dashboard" link="/suivi-import/" />
+                        <MyLink label="Mon profil" link="/suivi-import/profil" />
                         <MyLink label="Deconnexion" link="/deconnection" />
                      </ul>
                   </li>
                   {userData.role.toUpperCase() == 'ADMIN' && <AdminRoute />}
-                  {userData.role.toUpperCase() == 'VALIDATEUR' && <ValidateurRoute />}
+                  {/* {userData.role.toUpperCase() == 'LOGISTICIEN' && <ValidateurRoute />}*/}
                   {userData.role.toUpperCase() == 'IT' && <ItRoute />}
-                  {userData.role.toUpperCase() == 'CORRECTEUR' && <CorrecteurRoute />}
-                  {userData.role.toUpperCase() == 'INTEGRATEUR' && <IntegrateurRoute/>}
+                  {userData.role.toUpperCase() == 'LOGISTICIEN' && <CorrecteurRoute />}
+                  {userData.role.toUpperCase() == 'COMPTABLE' && <IntegrateurRoute/>}
                   {userData.role.toUpperCase() == 'SUPERVISEUR' && <SupervisorRoute/>}
                   {/*<li><a href="widgets.html"><i className="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>*/}
 

@@ -17,13 +17,14 @@ const WebPage: FunctionComponent<BodyProps> = ({title, children}) => {
                {children}
             </div>
                   
-            {/* <div className="container-fluid">
+           {/* <div className="container-fluid">
                <div className="footer">
-                  <p>Copyright © 2018 Designed by html.design. All rights reserved.<br/><br/>
-                     Distributed By: <a href="https://themewagon.com/">ThemeWagon</a>
+                  <p>Copyright © 2025 SO'3G. Tous droits réservés.<br/><br/>
+                     Développé par : <a href="">Novexia Group</a>
                   </p>
                </div>
             </div> */}
+             {/*<li><a href="widgets.html"><i className="fa fa-clock-o orange_color"></i> <span>Widgets</span></a></li>*/}
          </div>
     );
 }
