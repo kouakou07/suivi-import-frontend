@@ -7,6 +7,7 @@ export default interface InputProps{
     placeholder?: string,
     type?: string,
     report?: string,
+    required?: boolean;
     update: ComponentState,
     data: ComponentState,
     disable?: boolean,

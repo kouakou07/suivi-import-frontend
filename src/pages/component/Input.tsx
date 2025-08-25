@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import InputProps from "../../types/InputProps";
 
 
-const Input = ({data, update, name, label, report, placeholder='', type='text', disable=false}: InputProps) => {
+const Input = ({data, update, name, label, report,required, placeholder='', type='text', disable=false}: InputProps) => {
 
     const [field, setField] = useState('');
     useEffect(() => {
@@ -26,8 +26,10 @@ const Input = ({data, update, name, label, report, placeholder='', type='text', 
 
     return (
         <div className="form-group">
-            <label htmlFor={name + "input"}>{label}</label>
-            <input disabled={disable} type={type} placeholder={placeholder} value={field} onChange={onChange} className="form-control" id={name + "input"} />
+           <label htmlFor={name + "input"}>
+            {label}{required && <span style={{color: 'red'}}>*</span>}
+            </label>
+            <input disabled={disable} type={type} placeholder={placeholder} required={required} value={field} onChange={onChange} className="form-control" id={name + "input"} />
             {report != undefined && <small className="form-text text-danger">{report}</small>}
         </div>
     )

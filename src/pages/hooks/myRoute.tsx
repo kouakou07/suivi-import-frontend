@@ -78,6 +78,20 @@ const myRoute = {
     escompteCheckIntegrateur: '/validation/integrateur/{checkId}/remise/escompte',
     bornePassword: '/borne/{borneId}/password',
     updateCompte: '/compte/fichier',
-    nbRemiseLotGeneration: '/validation/integrateur/remise/lot/generation'
+    nbRemiseLotGeneration: '/validation/integrateur/remise/lot/generation',
+    //fournisseur
+    creerFournisseur: '/fournisseur/creer',
+    listeFournisseur: '/fournisseur/liste-fournisseur',
+    infoFournisseur: '/fournisseur/info/{fournisseurId}',
+    editionFournisseur: '/fournisseur/edition',
+    supprimerFournisseur: '/fournisseur/supprimer/{id}',
+    listeFournisseurAvecPagination: '/fournisseur/liste/{page}',
+    //article
+    creerArticle: '/article/creer',
+    listeArticle: '/article/liste-article',
+    infoArticle: '/article/info/{articleId}',
+    editionArticle: '/article/edition',
+    supprimerArticle: '/article/supprimer/{id}',
+    listeArticleAvecPagination: '/article/liste/{page}',
 };
 export default myRoute;

@@ -41,6 +41,14 @@ import TrackCheck from './pages/app/bank/rapport/TrackCheck';
 import IntegrationWebClearing from './pages/app/bank/It/IntegrationWebClearing';
 import PasswordBorneAgence from './pages/app/bank/agence/PasswordBorneAgence';
 import GenerateLotFile from './pages/app/bank/integrateur/GenerateLotFile';
+import ListeFournisseur from './pages/app/bank/admin/fournisseur/ListeFournisseur';
+import EnregistrerFournisseur from './pages/app/bank/admin/fournisseur/EnregistrerFournisseur';
+import InfoFournisseur from './pages/app/bank/admin/fournisseur/InfoFournisseur';
+import ListeClient from './pages/app/bank/admin/article/ListeArticle';
+import EnregistrerArticle from './pages/app/bank/admin/article/EnregistrerArticle';
+import InfoClient from './pages/app/bank/admin/article/InfoArticle';
+import ListeArticle from './pages/app/bank/admin/article/ListeArticle';
+import InfoArticle from './pages/app/bank/admin/article/InfoArticle';
 
 
 function App() {
@@ -67,6 +75,19 @@ function App() {
                 <Route path='/agence/:agence/comptes' element={<CompteAgence/>} />
                 <Route path='/agence/:agence/addCompte' element={<AddCompteAgence/>} />
                 <Route path='/agence/:agence/compte/:compteId' element={<InfoCompteAgence/>} />
+
+                 {/* Fournisseur*/}
+                <Route path='/liste-fournisseurs' element={<ListeFournisseur />} />
+                <Route path='/liste-fournisseurs/:page' element={<ListeFournisseur />} />
+                <Route path='/creer-fournisseur' element={<EnregistrerFournisseur/>} />
+                <Route path='/info/:fournisseurId/fournisseur' element={<InfoFournisseur />} />
+
+                 {/*Article*/}
+                <Route path='/liste-article' element={<ListeArticle/>} />
+                <Route path='/liste-article/:page' element={<ListeArticle />} />
+                <Route path='/creer-article' element={<EnregistrerArticle/>} />
+                <Route path='/article/info/:articleId' element={<InfoArticle />} />
+                
 
                 {/* Validateur*/}
                 <Route path='/validation/newRemise' element={<ListNewRemise/>} />
