@@ -16,7 +16,7 @@ public class AuditController {
     @Autowired
     AuditService auditService;
 
-    @Secured("ROLE_IT")
+//    @Secured("ROLE_IT")
     @GetMapping("/audit/{page}")
     public Object list(@PathVariable Integer page){
         return auditService.allAudits(page);

@@ -116,7 +116,6 @@ public class UserService {
         }
     }
 
-    
 
     //profil
     public Object myProfile(){

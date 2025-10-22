@@ -1,0 +1,21 @@
+CREATE TABLE fournisseurs (
+  id SERIAL PRIMARY KEY,
+  code_fournisseur VARCHAR(255),
+  intitule_fournisseur VARCHAR(255),
+  date_creation DATE,
+  nom_contact VARCHAR(255),
+  telephone VARCHAR(255),
+  telecopie VARCHAR(255),
+  e_mail VARCHAR(255),
+  siret VARCHAR(255),
+  n_tva_intracommunautaire VARCHAR(255),
+  adresse VARCHAR(255),
+  complement VARCHAR(255),
+  code_postal VARCHAR(255),
+  ville VARCHAR(255),
+  region VARCHAR(255),
+  pays VARCHAR(255),
+  statistiques_1 VARCHAR(255),
+  statistiques_2 VARCHAR(255),
+  statistiques_3 VARCHAR(255)
+);

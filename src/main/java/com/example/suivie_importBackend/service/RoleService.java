@@ -20,6 +20,7 @@ public class RoleService {
     public final String ROLE_CORRECTION = "Comptable";
     public final String ROLE_SUPER_VALIDATEUR_BANK = "Integrateur";
     public final String ROLE_SUPERVISOR_BANK = "Superviseur";
+    public final String ROLE_ACHETEUR = "Acheteur";
 
     public void seeders(){
         this.roleRepository.save(new RoleM(ROLE_ADMIN_BANK));
@@ -28,6 +29,7 @@ public class RoleService {
         this.roleRepository.save(new RoleM(ROLE_CORRECTION));
         this.roleRepository.save(new RoleM(ROLE_SUPER_VALIDATEUR_BANK));
         this.roleRepository.save(new RoleM(ROLE_SUPERVISOR_BANK));
+        this.roleRepository.save(new RoleM(ROLE_ACHETEUR));
         
     }
 
@@ -50,6 +52,10 @@ public class RoleService {
     public RoleM getSuperviseurBank(){
         return this.roleRepository.findFirstByLibelleAndDeleted(ROLE_SUPERVISOR_BANK, Deletion.NO);
     }
+
+    public RoleM getAcheteur(){
+        return this.roleRepository.findFirstByLibelleAndDeleted(ROLE_ACHETEUR, Deletion.NO);
+    }
    
 
     public Boolean isBankUser(Long id){
@@ -58,8 +64,9 @@ public class RoleService {
             return role.getLibelle().equals(ROLE_ADMIN_BANK) ||
                     role.getLibelle().equals(ROLE_IT_BANK)  ||
                     role.getLibelle().equals(ROLE_VALIDATEUR_BANK) ||
-                    role.getLibelle().equals(ROLE_SUPER_VALIDATEUR_BANK)||
-                    role.getLibelle().equals(ROLE_SUPERVISOR_BANK);
+                    role.getLibelle().equals(ROLE_SUPER_VALIDATEUR_BANK) ||
+                    role.getLibelle().equals(ROLE_SUPERVISOR_BANK) ||
+                    role.getLibelle().equals(ROLE_ACHETEUR);
 
         }
         return false;
@@ -83,6 +90,7 @@ public class RoleService {
         libelles.add(ROLE_CORRECTION);
         libelles.add(ROLE_SUPER_VALIDATEUR_BANK);
         libelles.add(ROLE_SUPERVISOR_BANK);
+        libelles.add(ROLE_ACHETEUR);
         return roleRepository.findByLibelleInAndDeletedOrderByLibelleAsc(libelles, Deletion.NO);
     }
 
@@ -93,7 +101,7 @@ public class RoleService {
         libelles.add(ROLE_VALIDATEUR_BANK);
         libelles.add(ROLE_SUPER_VALIDATEUR_BANK);
         libelles.add(ROLE_SUPERVISOR_BANK);
-        //libelles.add(ROLE_CORRECTION);
+        libelles.add(ROLE_ACHETEUR);
         return roleRepository.findByLibelleInAndDeletedOrderByLibelleAsc(libelles, Deletion.NO);
     }
 

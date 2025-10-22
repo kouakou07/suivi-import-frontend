@@ -52,13 +52,10 @@ public class UserController {
         return userService.changePassword(form, res);
     }
 
-
     @PostMapping("/login/password")
     public Object changePasswordAtLogin(@Valid PasswordForm form, BindingResult res){
         return userService.changePasswordAtLogin(form, res);
     }
-
-
 
     @Secured("ROLE_ADMIN")
     @GetMapping("/liste/{page}/user/banque")

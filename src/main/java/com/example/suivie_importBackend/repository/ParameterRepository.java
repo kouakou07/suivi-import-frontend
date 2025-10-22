@@ -6,7 +6,8 @@ import com.example.suivie_importBackend.models.ParameterM;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ParameterRepository extends JpaRepository<ParameterM, Long> {
-    
+
     Optional<ParameterM> findFirstByCodeAndDeleted(String code, Boolean deletion);
+
     List<ParameterM> findByDeleted(Boolean deletion);
 }

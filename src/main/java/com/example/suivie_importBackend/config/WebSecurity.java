@@ -41,7 +41,10 @@ public class WebSecurity {
         http.authorizeHttpRequests(auth -> {
             auth.requestMatchers("/test/**",
                                     "/api/login",
-                                    "/api/login/password"
+                                    "/api/login/password",
+                                    "/api/article/info/{articleId}",
+                                    "/api/fournisseur/liste-fournisseur",
+                                    "/api/fournisseur/liste/{page}"
                                     //"/v3/api-docs"
             )
             .permitAll()
