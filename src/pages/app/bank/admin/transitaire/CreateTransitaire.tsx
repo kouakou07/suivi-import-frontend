@@ -11,7 +11,7 @@ import Wrapper from "../../../../component/Wrapper";
 import Input from "../../../../component/Input";
 import { BeatLoader } from "react-spinners";
 
-const EnregistrerFournisseur = () => {
+const CreateTransitaire = () => {
     const [fournisseurData, setFournisseurData] = useState({
         codeFournisseur: '',
         intituleFournisseur: '',
@@ -22,7 +22,6 @@ const EnregistrerFournisseur = () => {
         codePostal: '',
         ville: '',
         pays: '',
-        type: 'SIMPLE',
         modePaiement: 'VIREMENT',
         echeance: '',
         iban: '',
@@ -44,7 +43,6 @@ const EnregistrerFournisseur = () => {
         adresse: undefined,
         ville: undefined,
         pays: undefined,
-        type: undefined,
         modePaiement: undefined,
         echeance: undefined,
         iban: undefined,
@@ -74,7 +72,6 @@ const EnregistrerFournisseur = () => {
                     adresse: undefined,
                     ville: undefined,
                     pays: undefined,
-                    type: undefined,
                     modePaiement: undefined,
                     echeance: undefined,
                     iban: undefined,
@@ -96,7 +93,6 @@ const EnregistrerFournisseur = () => {
                     adresse: '',
                     ville: '',
                     pays: '',
-                    type: 'SIMPLE',
                     modePaiement: 'VIREMENT',
                     echeance: '',
                     iban: '',
@@ -109,8 +105,8 @@ const EnregistrerFournisseur = () => {
                 });
                 setIsSubmitLoading(false);
                 Swal.fire({
-                    title: "Création Fournisseur",
-                    text: "Le fournisseur a été créé avec succès.",
+                    title: "Création Transitaire",
+                    text: "Le transitaire a été créé avec succès.",
                     icon: "success",
                     backdrop: false,
                 });
@@ -134,12 +130,12 @@ const EnregistrerFournisseur = () => {
     };
 
     return (
-        <Layout title="Enregistrer un fournisseur">
+        <Layout title="Enregistrer un transitaire">
             <div className="row">
                 <div className="col-md-10 col-lg-8">
                     <Wrapper title="Nouveau fournisseur">
                         <div className="text-right mb-3">
-                            <Link className="btn btn-link" to="/suivi-import/liste-fournisseurs">Liste des fournisseurs</Link>
+                            <Link className="btn btn-link" to="/suivi-import/liste-fournisseurs">Liste des transitaires</Link>
                         </div>
                         <form onSubmit={onSubmit}>
                             {/* Champs existants */}
@@ -153,21 +149,6 @@ const EnregistrerFournisseur = () => {
                             <Input label="Ville" name="ville" data={fournisseurData} update={setFournisseurData} report={errors.ville} />
                             <Input label="Pays" name="pays" data={fournisseurData} update={setFournisseurData} report={errors.pays} />
                             <Input label="Échéance" name="echeance" data={fournisseurData} update={setFournisseurData} report={errors.echeance} />
-
-                            {/* Type de fournisseur */}
-                            <div className="form-group mb-3">
-                                <label>Type de fournisseur</label>
-                                <select
-                                    className="form-control"
-                                    name="type"
-                                    value={fournisseurData.type}
-                                    onChange={(e) => setFournisseurData({ ...fournisseurData, type: e.target.value })}
-                                >
-                                    <option value="SIMPLE">Fournisseur simple</option>
-                                    <option value="CENTRALE">Fournisseur centrale</option>
-                                </select>
-                                {errors.type && <div className="text-danger">{errors.type}</div>}
-                            </div>
 
                             {/* Nouveaux champs */}
                             <div className="form-group mb-3">
@@ -233,4 +214,4 @@ const EnregistrerFournisseur = () => {
     );
 };
 
-export default EnregistrerFournisseur;
+export default CreateTransitaire;

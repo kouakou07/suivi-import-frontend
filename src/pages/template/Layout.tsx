@@ -19,7 +19,6 @@ const Layout: FunctionComponent<BodyProps> = ({title, children}) => {
         username: '',
         role: ''
     });
-
    
     useEffect(() => {
         const tokenAuth = localStorage.getItem('authToken');

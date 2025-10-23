@@ -39,11 +39,7 @@ const myRoute = {
     addMotif: '/motif/ajouter',
     editMotif: '/motif/editer/{id}',
     removeMotif: '/motif/supprimer/{id}',
-    listBanque: '/banque/liste/{page}',
-    addBanque: '/banque/ajouter',
-    editBanque: '/banque/editer/{id}',
-    infoBanque: '/banque/info/{codeBank}',
-    removeBanque: '/banque/supprimer/{id}',
+   
     validateCheque: '/validation/{remiseId}/remise/cheque/{chequeId}/valide',
     forceValidationCheque: '/validation/{remiseId}/remise/cheque/{chequeId}/valideforce',
     rejetCheque: '/validation/{remiseId}/remise/cheque/{chequeId}/rejet',
@@ -86,6 +82,13 @@ const myRoute = {
     editionFournisseur: '/fournisseur/edition',
     supprimerFournisseur: '/fournisseur/supprimer/{id}',
     listeFournisseurAvecPagination: '/fournisseur/liste/{page}',
+    fournisseurDefournisseurCentrale: '/centrale/{centraleId}/fournisseurs/associer',
+    listefournisseurDefournisseurCentrale: '/centrale/fournisseurs/{idCentrale}',
+    // rechercheFournisseur: '/code/{codeFournisseur}',
+     rechercheFournisseur: '/code/{valeur}',
+    supprimerFournisseurDeCentrale: '/centrale/fournisseurs/supprimer/{associationId}',
+    importFournisseur: '/fournisseur/upload-excel',
+    //user
     //article
     creerArticle: '/article/creer',
     listeArticle: '/article/liste-article',
@@ -93,5 +96,86 @@ const myRoute = {
     editionArticle: '/article/edition',
     supprimerArticle: '/article/supprimer/{id}',
     listeArticleAvecPagination: '/article/liste/{page}',
+    associerFournisseursArticle: '/article/{articleId}/fournisseurs/associer',
+    listeFournisseursArticle: '/article/fournisseurs/{articleId}',
+    supprimerFournisseurArticle: '/article/fournisseurs/supprimer/{associationId}',
+    rechercheArticle: '/article/code/{valeur}',
+    listeDepartement: '/article/departements',
+    listeFamille: '/article/familles',
+    listeUnite: '/article/unites',
+
+    // acheteur
+    listeAcheteur: '/acheteur/liste/{page}',
+    listeAllAcheteur: '/acheteur/liste',
+    creerAcheteur: '/acheteur/enregistrer',
+    infoAcheteur: '/acheteur/info/{acheteurId}',
+    editionAcheteur: '/acheteur/edition',
+    supprimerAcheteur: '/acheteur/supprimer/{id}',
+
+     // commande
+     creerCommande: '/commandes/cree',
+     listeCommandeAvecPagination: '/commandes/listeCommandeAvecPagination',
+    listeCommandetest: '/commandes/listeCommandes',
+     infoCommande: '/commandes/detail/{id}',
+     editionCommande: '/commandes/modifier/{id}',
+     supprimerCommande: '/commandes/supprimer/{id}',
+     listeCommande: '/commandes/listeCommande',
+     rechercheCommande: '/commande/code/{codeCommande}',
+
+     // ligne commande
+     creerLigneCommande: '/commandes/lignes/{commandeId}',
+     listeLigneCommande: '/commandes/{commandeId}/ligneCommande',
+     infoLigneCommande: '/lignes-commandes/info/{ligneCommandeId}',
+     editionLigneCommande: '/lignes-commandes/edition',
+     supprimerLigneCommande: '/lignes-commandes/supprimer/{id}',
+     listeLigneCommandeAvecPagination: '/lignes-commandes/liste/{page}',
+     rechercheLigneCommande: '/lignes-commandes/code/{codeLigneCommande}',
+
+     //banques
+
+    listBanque: '/banques/liste/{page}',
+    addBanque: '/banques/ajouter',
+    editBanque: '/banques/editer/{id}',
+    infoBanque: '/banques/info/{codeBank}',
+    removeBanque: '/banques/supprimer/{id}',
+
+     //incoterm
+    listeIncoterm: '/incoterms/liste/{page}',
+    addIncoterm: '/incoterms/ajouter',
+    editIncoterm: '/incoterms/editer/{id}',
+    removeIncoterm: '/incoterms/supprimer/{id}',
+
+    //parametres devises
+    listDevise: '/devises/liste/{page}',
+    addDevise: '/devises/ajouter',
+    editDevise: '/devises/editer/{id}',
+    removeDevise: '/devises/supprimer/{id}',
+    //parametres type fournisseur
+    listTypeFournisseur: '/type-fournisseurs/liste/{page}',
+    addTypeFournisseur: '/type-fournisseurs/ajouter',
+    editTypeFournisseur: '/type-fournisseurs/editer/{id}',
+    removeTypeFournisseur: '/type-fournisseurs/supprimer/{id}',
+    
+    //mode d'envoi
+
+    listModeEnvoie: '/modes-envoie/liste/{page}',
+    addModeEnvoie: '/modes-envoie/ajouter',
+    editModeEnvoie: '/modes-envoie/editer/{id}',
+    removeModeEnvoie: '/modes-envoie/supprimer/{id}',
+
+    //departement
+
+    listDepartement: '/departements/liste/{page}',
+    addDepartement: '/departements/ajouter',
+    editDepartement: '/departements/editer/{id}',
+    removeDepartement: '/departements/supprimer/{id}',
+
+    //echeance
+
+    listEcheance: '/echeances/liste/{page}',
+    addEcheance: '/echeances/ajouter',
+    editEcheance: '/echeances/editer/{id}',
+    removeEcheance: '/echeances/supprimer/{id}', 
+    
 };
 export default myRoute;

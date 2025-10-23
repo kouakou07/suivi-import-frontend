@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import moment from 'moment';
-import httpClient from "../../../../hooks/httpClient";
-import myRoute from "../../../../hooks/myRoute";
-import Layout from "../../../../template/Layout";
-import Wrapper from "../../../../component/Wrapper";
-import Pagination from "../../../../component/Pagination";
-import noNetWork, { problemOccur, ToastOperation } from "../../../../component/AlertReport";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import { saveAs } from "file-saver";
 import * as XLSX from "xlsx";
+import httpClient from "../../../hooks/httpClient";
+import myRoute from "../../../hooks/myRoute";
+import noNetWork, { problemOccur } from "../../../component/AlertReport";
+import Layout from "../../../template/Layout";
+import Wrapper from "../../../component/Wrapper";
+import Pagination from "../../../component/Pagination";
 
-const ListeFournisseur = () => {
+
+const ListeFournisseurPourCommande = () => {
+
     const [isLoading, setIsLoading] = useState(true);
     const [fournisseurs, setFournisseurs] = useState<any>({});
     const [page, setPage] = useState('0');
@@ -37,33 +39,6 @@ const ListeFournisseur = () => {
                 }
             });
     }, [refresh, page]);
-
-    const onRemove = (id: number) => {
-        ToastOperation.fire()
-            .then(choice => {
-                if (choice.isConfirmed) {
-                    setIsLoading(true);
-                    httpClient.post(myRoute.supprimerFournisseur.replace("{id}", id.toString()))
-                        .then(res => {
-                            setIsLoading(false);
-                            Swal.fire({
-                                title: 'Le fournisseur à été supprimé avec succès',
-                                icon: 'success',
-                                backdrop: false
-                            });
-                            setRefresh(refresh + 1);
-                        })
-                        .catch(err => {
-                            setIsLoading(false);
-                            if (err.response == undefined) {
-                                noNetWork();
-                            } else {
-                                problemOccur();
-                            }
-                        });
-                }
-            });
-    };
 
     const filteredFournisseurs = (fournisseurs?.content || []).filter((f: any) =>
         codeFournisseurFilter === "" ||
@@ -180,23 +155,6 @@ const ListeFournisseur = () => {
                                 Rechercher
                             </button>
                         </form>
-
-                        <button
-                            type="button"
-                            className="btn ml-2"
-                            style={{ backgroundColor: "#ff5722", color: "white", border: "none" }}
-                            onClick={exportCSV}
-                        >
-                            Exporter Excel
-                        </button>
-                        <button
-                            type="button"
-                            className="btn ml-2"
-                            style={{ backgroundColor: "#ff5722", color: "white", border: "none" }}
-                            onClick={exportPDF}
-                        >
-                            Exporter PDF
-                        </button>
                     </div>
                 </form>
             </Wrapper>
@@ -237,28 +195,14 @@ const ListeFournisseur = () => {
                                             <td>{fournisseur.pays ?? ""}</td>
                                             <td>{fournisseur.type ?? ""}</td>
                                             <td className="text-right">
-                                                {/* <Link to={"/suivi-import/info/" + fournisseur.id + "/fournisseur"}>
-                                                    <button type="button"
-                                                        className="btn-sm ml-1"
-                                                        style={{ backgroundColor: "#2298ffff", color: "white", border: "none" }}
-                                                        title="Enregistrer commande">
-                                                        Commande
-                                                    </button>
-                                                </Link> */}
-                                                <Link to={"/suivi-import/info/" + fournisseur.id + "/fournisseur"}>
+                                                <Link to={"/suivi-import/creerCommande/" + fournisseur.id }>
                                                     <button type="button"
                                                         className="btn-sm ml-1"
                                                         style={{ backgroundColor: "#06576cff", color: "white", border: "none" }}
-                                                        title="Voir Détails">
-                                                        Détails
+                                                        title="Enregistrer commande">
+                                                        Ajouter commande
                                                     </button>
                                                 </Link>
-                                                <button onClick={() => onRemove(fournisseur.id)}
-                                                    className="btn-sm ml-1"
-                                                    style={{ backgroundColor: "#ff5722", color: "white", border: "none" }}
-                                                    title="Supprimer">
-                                                    Supprimer
-                                                </button>
                                             </td>
                                         </tr>
                                     ))}
@@ -276,6 +220,5 @@ const ListeFournisseur = () => {
             }
         </Layout>
     );
-};
-
-export default ListeFournisseur;
+}
+export default ListeFournisseurPourCommande;

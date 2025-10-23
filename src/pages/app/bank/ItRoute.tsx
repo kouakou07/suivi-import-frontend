@@ -11,6 +11,8 @@ const ItRoute = () => {
             
                     <MyLink label="Session | Inactivité" link="/suivi-import/parametre/session-inactivite" />
                     <MyLink label="Tentative login" link="/suivi-import/parametre/tentative-login" />
+                    <MyLink label="Liste des banques" link="/suivi-import/parametre/banques"  />
+                    <MyLink label="Enregistrer une banque" link="/suivi-import/creer-banque"  />
                 </ul>
             </li> 
             <li className="active">
@@ -19,13 +21,13 @@ const ItRoute = () => {
                     <MyLink label="Audit" link="/suivi-import/audit"  />
                 </ul>
             </li> 
-            <li className="active">
+            {/* <li className="active">
                 <a href="#rapportBank" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle"><i className="fa fa-file yellow_color"></i> <span>Gestion des rapports</span></a>
                 <ul className="collapse list-unstyled" id="rapportBank">
-                    <MyLink label="Suivi des cheques" link="/banking/suivi/check"  />
-                    <MyLink label="Faire un rapport" link="/banking/rapport/bank"  />
+                    <MyLink label="Liste des banques" link="/suivi-import/parametre/banques"  />
+                    <MyLink label="Enregistrer une banque" link="/suivi-import/creer-banque"  />
                 </ul>
-            </li>
+            </li> */}
         </>
     );
 }
