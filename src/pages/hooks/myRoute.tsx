@@ -176,6 +176,13 @@ const myRoute = {
     addEcheance: '/echeances/ajouter',
     editEcheance: '/echeances/editer/{id}',
     removeEcheance: '/echeances/supprimer/{id}', 
+
+    //mode transport
+
+    listModeTransport: '/modes-transports/liste/{page}',
+    addModeTransport: '/modes-transports/ajouter',
+    editModeTransport: '/modes-transports/editer/{id}',
+    removeModeTransport: '/modes-transports/supprimer/{id}',
     
 };
 export default myRoute;

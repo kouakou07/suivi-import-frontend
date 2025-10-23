@@ -17,10 +17,10 @@ const ModeTransport = () => {
     const [page, setPage] = useState('0');
     const [idBanque, setIdBanque] = useState(0);
     const [banqueAdd, setbanqueAdd] = useState({
-        libelle: ''
+        intitule: ''
     });
     const [errors, setErrors] = useState({
-        libelle: undefined
+        intitule: undefined
     })
     const [refresh, setRefresh] = useState(0);
     const [menu, setMenu] = useState({
@@ -33,7 +33,7 @@ const ModeTransport = () => {
 
 
     useEffect(() => {
-        httpClient.get(myRoute.listBanque.replace("{page}", page))
+        httpClient.get(myRoute.listModeTransport.replace("{page}", page))
             .then(res => {
                 setModeTransports(res.data);
                 setIsLoading(false);
@@ -51,7 +51,7 @@ const ModeTransport = () => {
     const onChoice = (target: number) => {
         if (target == menu.add) {
             setbanqueAdd({
-                libelle: ''
+                intitule: ''
             });
             setTitle('Ajout de mode transport');
             setIdBanque(0);
@@ -62,7 +62,7 @@ const ModeTransport = () => {
 
     const onEdit = (data: any) => {
         setbanqueAdd({
-            libelle: data.libelle
+            intitule: data.intitule
         })
         setErrors(writeErrors({ ...errors }, {}));
         setIdBanque(data.id);
@@ -78,8 +78,8 @@ const ModeTransport = () => {
 
         const route =
             choice === menu.add
-                ? myRoute.addBanque
-                : myRoute.editBanque.replace("{id}", idBanque.toString());
+                ? myRoute.addModeTransport
+                : myRoute.editModeTransport.replace("{id}", idBanque.toString());
 
         httpClient
             .post(route, banqueAdd, {
@@ -90,7 +90,7 @@ const ModeTransport = () => {
                 Toast.fire();
 
                 if (choice === menu.add) {
-                    setbanqueAdd({ libelle: "" });
+                    setbanqueAdd({ intitule: "" });
                 }
 
                 setRefresh((r) => r + 1);
@@ -113,7 +113,7 @@ const ModeTransport = () => {
                     setIsLoading(true);
 
                     httpClient
-                        .post(myRoute.removeBanque.replace("{id}", id.toString()))
+                        .post(myRoute.removeModeTransport.replace("{id}", id.toString()))
                         .then(() => {
                             Toast.fire();
                             setRefresh((prev) => prev + 1);
@@ -140,7 +140,7 @@ const ModeTransport = () => {
                     <Wrapper title={title}>
                         <div className="text-right"><button type="button" onClick={() => onChoice(menu.list)} className="btn btn-link">Les Modes de Transport</button></div>
                         <form onSubmit={onAddOrEdit}>
-                            <Input label='Intitule Mode Transport' report={errors.libelle} name='libelle' data={banqueAdd} update={setbanqueAdd} required />
+                            <Input label='Intitule Mode Transport' report={errors.intitule} name='intitule' data={banqueAdd} update={setbanqueAdd} required />
                             <div className="mt-2">
                                 {isAddLoading == true && <div className="text-center">
                                     <BeatLoader />
@@ -159,7 +159,7 @@ const ModeTransport = () => {
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>Intitule Envoie</th>
+                                        <th>Intitule Mode Transport</th>
                                         <th className="text-right">Actions</th>
                                     </tr>
                                 </thead>
@@ -168,7 +168,7 @@ const ModeTransport = () => {
 
                                         return (
                                             <tr key={modeTransport.id}>
-                                                <td>{modeTransport.libelle}</td>
+                                                <td>{modeTransport.intitule}</td>
                                                 <td className="text-right">
                                                     <Link to={"#"} onClick={() => onEdit(modeTransport)} className="text-success"><i className="fa fa-eyedropper"></i> </Link>
                                                     <Link to={"#"} onClick={() => onRemove(modeTransport.id)} className="text-danger"><i className="fa fa-trash"></i> </Link>
